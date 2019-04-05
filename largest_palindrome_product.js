@@ -46,18 +46,14 @@ module.exports = function (digits) {
 
     //loop to find largest palindrome
     for (let i = maxDigit; i > minDigit; i--) {
-      let currentPalindrome = 0;
       for (let j = maxDigit; j > maxDigit - minDigit; j--) {
         let product = i * j;
         let multiple = parseInt(product.toString() + product);
         let reversed = parseInt(multiple.toString().split('').reverse().join(''));
-        if (multiple === reversed && multiple > currentPalindrome) {
+        if (multiple === reversed && multiple > palindromeNumber) {
           factor_0 = i;
           factor_1 = j;
-          currentPalindrome = product;
-        }
-        if (currentPalindrome > palindromeNumber) {
-          palindromeNumber = currentPalindrome;
+          palindromeNumber = product;
           getpalindromeNumber();
           getfactor_0();
           getfactor_1();
