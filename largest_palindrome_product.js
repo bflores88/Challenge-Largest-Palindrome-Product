@@ -11,18 +11,6 @@ module.exports = function (digits) {
   var palindromeNumber = 0;
 
   // do your work here
-  function getfactor_0() {
-    return factor_0;
-  }
-
-  function getfactor_1() {
-    return factor_1;
-  }
-
-  function getpalindromeNumber() {
-    return palindromeNumber;
-  }
-
   (function () {
     //find max digit
     let maxDigitStr = '';
@@ -50,20 +38,17 @@ module.exports = function (digits) {
         let product = i * j;
         let multiple = parseInt(product.toString() + product);
         let reversed = parseInt(multiple.toString().split('').reverse().join(''));
-        if (multiple === reversed && multiple > palindromeNumber) {
+        if (multiple === reversed && product > palindromeNumber) {
           factor_0 = i;
           factor_1 = j;
           palindromeNumber = product;
-          getpalindromeNumber();
-          getfactor_0();
-          getfactor_1();
-          return palindromeNumber;
+          return factor_0, factor_1, palindromeNumber;
         }
       }
     }
   }());
 
-  return {
+  return { 
     factor_0: factor_0,
     factor_1: factor_1,
     palindromeNumber: palindromeNumber
